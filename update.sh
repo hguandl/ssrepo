@@ -2,7 +2,7 @@
 
 DIR=feeds.nosync
 
-PKGS=(openwrt-shadowsocks luci-app-shadowsocks openwrt-chinadns openwrt-dns-forwarder openwrt-dist-luci)
+PKGS=(openwrt-shadowsocks luci-app-shadowsocks openwrt-chinadns openwrt-dns-forwarder openwrt-dist-luci openwrt-simple-obfs)
 FEED_BASE=(mbedtls)
 FEED_PKGS=(libcares libsodium pcre libev)
 
@@ -27,7 +27,7 @@ update shadowsocks luci-app-shadowsocks
 update aa65535 openwrt-chinadns
 update aa65535 openwrt-dns-forwarder
 update aa65535 openwrt-dist-luci
-update pymumu smartdns
+update aa65535 openwrt-simple-obfs
 
 for pkg in ${PKGS[*]}; do
     sync $DIR/$pkg
@@ -40,5 +40,3 @@ done
 for pkg in ${FEED_PKGS[*]}; do
     sync $DIR/openwrt-feeds/packages/$pkg
 done
-
-rsync -av --exclude=.git $DIR/smartdns/package/openwrt/ ./smartdns/
